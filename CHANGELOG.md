@@ -1,28 +1,47 @@
-- 新增 繁中服肉鸽 分队、编队、干员自定义的支持，修复大部分已知识别错误 @KiyuM1n @MistEO @lza11111 @horror-proton @Realmajia  
-  干员名请使用简中输入
-- 新增 繁中服 支持 领取日常奖励 @KiyuM1n
-- Open the upload Penguin Stats function for EN and JP clients, and fix drops recognition errors. @MistEO @horror-proton
-- 更新 繁中服 公招数据、仓库识别数据 @MistEO @lza11111
-- 优化 自定义基建 无人机和菲亚同时为 `pre` 时，优先使用无人机 @MistEO
-- 优化 基建 宿舍 `蹭信赖` 功能，改为按从信赖从低到高排序 @MistEO
-- 优化 肉鸽 部署及招募逻辑 @DavidWang19 @WWPXX233
-- 修复 肉鸽 招募 `砾` 后卡在开始行动界面的问题 ~~直接不招募了~~ @MistEO
-- 修复 肉鸽 `高规格分队` 无法选择的问题 @MistEO
-- 修复 肉鸽 偶现战斗中闪退问题 @zzyyyl
-- 修复 肉鸽 第二局及之后招募逻辑错误 @DavidWang19
-- 修复 水月肉鸽 `万象追忆录` 卡住的问题 @zzyyyl
-- 修复 下载新版本 失败闪退的问题，优化更新逻辑 @zzyyyl
-- 修复 刷理智 部分关卡跳过掉落识别的问题 @zzyyyl
-- 修复 刷理智 上传企鹅物流错误的问题 @MistEO
-- 修复 基建 进入加载时间过长导致的错误 @zzyyyl
-- 修复 基建 2 发电站任务出错的问题、为识别到会客室时后续任务出错的问题 @lanhao34
-- 修复 基建 偶现返回按钮没点上导致后续任务卡住的问题 @MistEO
-- 修复 热键 不能正常使用的问题 @gdlcf88
-- 修复 界面 手动停止任务时，出现的一些异常 @MistEO @zzyyyl
-- 修复 软件更新 逻辑 @zzyyyl
-- 优化 macOS 界面功能、OCR 识别效果 @hguandl
-- 优化 OCR 识别效果及效率，引入新的模型 @MistEO
-- 优化 自定义基建 内置作业 @lhhxxxxx @MistEO
-- 优化 界面 提示及布局 @ABA2396
-- 优化 Task 字段解析逻辑，新增一些语法 @zzyyyl
-- 更新 文档 @ABA2396 @MistEO @wallsman
+## v4.14.0-beta.1
+
+### 新增
+
+- 添加主线第十二章导航 @zzyyyl
+- 启动MAA后直接最小化选项 (#4193) @moomiji
+### 改进
+
+- 绝大部分资源改为惰性加载，大幅提高启动速度和并优化内存占用 @MistEO
+- 新增肉鸽不期而遇插件，优化招募与战斗策略 (#4241) @LingXii
+- 更新技能识别模型，优化最上面一排干员技能的识别 @MistEO
+- 重构界面部分样式，改用 HandyControls (#4200) @moomiji
+- 简化肉鸽编队界面的选中识别 (#4246) @horror-proton
+- 企鹅 id 无条件同步到界面 @MistEO
+- 规避第十二章三倍掉落被上传的可能性 @MistEO
+
+### 修复
+
+- 修复傀影肉鸽招募错误 (#4241) @LingXii
+- 修复战斗中狂点cooling干员的问题 @MistEO
+- 修复部分视频识别错误 @MistEO
+- 修复iOS识别不到战斗干员 @hguandl @MistEO
+- 修复会客室偶现送完线索卡住的问题 @MistEO
+- 修复一个罕见的肉鸽崩溃情况 @horror-proton
+- 修改主线导航替换文本 #4226 @ABA2396
+- 修复MAA主窗口最小化后弹窗位置错误  @MistEO
+- 过滤中坚信物，提高仓库识别速度 (#4210) @orzFly @MistEO
+- 修复更新镜像爆炸时不尝试其他镜像的问题，删掉几个爆炸的镜像 @MistEO
+
+### 其他
+
+- 删除已经用不上了的component包 @MistEO
+- 扩大识别区域 @ABA2396
+- 替换三星判断条件 @ABA2396
+- 修改 EpisodeOcrReplace 替换内容 @ABA2396
+- 添加标注 @ABA2396
+- revert tiles data @MistEO
+
+### For Overseas
+
+#### YostarJP
+
+- Fix dead loop in options @MistEO
+
+#### YostarEN
+
+- Fix level navigation #4226 @ABA2396

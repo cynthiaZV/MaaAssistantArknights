@@ -2,7 +2,10 @@ import json
 import pathlib
 import time
 
-from asst import Asst, Message
+from asst.asst import Asst
+from asst.utils import Message, Version, InstanceOptionType
+from asst.updater import Updater
+from asst.emulator import Bluestacks
 
 
 @Asst.CallBackType
@@ -16,7 +19,10 @@ def my_callback(msg, details, arg):
 if __name__ == "__main__":
 
     # 请设置为存放 dll 文件及资源的路径
-    path = pathlib.Path.cwd().parent
+    path = pathlib.Path(__file__).parent.parent
+
+    # 设置更新器的路径和目标版本并更新
+    Updater(path, Version.Stable).update()
 
     # 外服需要再额外传入增量资源路径，例如
     # incremental_path=path / 'resource' / 'global' / 'YoStarEN'
@@ -25,6 +31,18 @@ if __name__ == "__main__":
     # 若需要获取详细执行信息，请传入 callback 参数
     # 例如 asst = Asst(callback=my_callback)
     asst = Asst()
+
+    # 设置额外配置
+    # 触控方案配置
+    asst.set_instance_option(InstanceOptionType.touch_type, 'maatouch')
+    # 暂停下干员
+    # asst.set_instance_option(InstanceOptionType.deployment_with_pause, '1')
+
+    # 启动模拟器。例如启动蓝叠模拟器的多开Pie64_1，并等待30s
+    # Bluestacks.launch_emulator_win(r'C:\Program Files\BlueStacks_nxt\HD-Player.exe', 30, "Pie64_1")
+
+    # 获取Hyper-v蓝叠的adb port
+    # port = Bluestacks.get_hyperv_port(r"C:\ProgramData\BlueStacks_nxt\bluestacks.conf", "Pie64_1")
 
     # 请自行配置 adb 环境变量，或修改为 adb 可执行程序的路径
     if asst.connect('adb.exe', '127.0.0.1:5555'):
@@ -60,11 +78,10 @@ if __name__ == "__main__":
     })
     asst.append_task('Award')
     # asst.append_task('Copilot', {
-    #     'stage_name': '千层蛋糕',
     #     'filename': './GA-EX8-raid.json',
     #     'formation': False
     # })
-
+    # asst.append_task('Custom', {"task_names": ["AwardBegin"]})
     asst.start()
 
     while asst.running():

@@ -3,46 +3,51 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using MaaBuilder.Models;
+using Nuke.Common.Tools.MSBuild;
 
 namespace MaaBuilder;
 
 public partial class Build : NukeBuild
 {
+    private readonly static string HostPlatform = RuntimeInformation.OSArchitecture switch {
+        Architecture.X64 => "x64",
+        Architecture.Arm64 => "ARM64",
+        _ => "UNSUPPORTED"
+    };
+
     public static int Main()
     {
-        var osValidation = 
-            RuntimeInformation.IsOSPlatform(OSPlatform.Windows) &&
-            RuntimeInformation.OSArchitecture == Architecture.X64;
+        var isWindows = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
 
-        if (osValidation)
+        if (isWindows && HostPlatform != "UNSUPPORTED")
         {
             return Execute<Build>(_ => _.Default);
         }
-        
+
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.Error.WriteLine("仅在 Windows x64 平台可用");
+        Console.Error.WriteLine("仅在 Windows x64/ARM64 平台可用");
 
         Console.Error.WriteLine($"当前系统：{RuntimeInformation.OSDescription}");
         Console.Error.WriteLine($"当前系统架构：{RuntimeInformation.OSArchitecture}");
-      
+
         return 1;
     }
 
-    BuildParameters Parameters;
+    private BuildParameters Parameters;
 
-    const string MasterBranch = "master";
-    const string DevBranch = "dev";
+    private const string MasterBranch = "master";
+    private const string DevBranch = "dev";
 
-    const string MaaDevBundlePackageNameTemplate = "MAA-{VERSION}-win-x64-Dev";
+    private const string MaaDevBundlePackageNameTemplate = "MAA-{VERSION}-win-{PLATFORM}-Dev";
 
-    string Version = "";
-    string ChangeLog = "";
+    private string Version = "";
+    private string ChangeLog = "";
 
-    string MaaDevBundlePackageName => MaaDevBundlePackageNameTemplate.Replace("{VERSION}", Version);
+    private string MaaDevBundlePackageName => MaaDevBundlePackageNameTemplate.Replace("{VERSION}", Version).Replace("{PLATFORM}", Parameters.TargetPlatform);
 
-    string LatestTag;
+    private string LatestTag;
 
-    List<Checksum> ArtifactChecksums = new();
+    private List<Checksum> ArtifactChecksums = new();
 
     protected override void OnBuildInitialized()
     {
@@ -53,6 +58,7 @@ public partial class Build : NukeBuild
         Information("1. 工具链");
         Information($"Visual Studio 路径：{Parameters.VisualStudioPath ?? "Null"}");
         Information($"MSBuild 路径：{Parameters.MsBuildPath ?? "Null"}");
+        Information($"MSBuild 目标架构：{Parameters.TargetPlatform ?? "Null"}");
 
         Information("2. 仓库");
         Information($"主仓库：{Parameters.MainRepo ?? "Null"}");
@@ -67,6 +73,7 @@ public partial class Build : NukeBuild
         Information("4. 项目");
         Information($"MaaCore 项目：{Parameters.MaaCoreProject ?? "Null"}");
         Information($"MaaWpf 项目：{Parameters.MaaWpfProject ?? "Null"}");
+        Information($"SyncRes 项目：{Parameters.MaaSyncResProject ?? "Null"}");
 
         Information("5. 配置");
         Information($"构建时间：{Parameters.BuildTime ?? "Null"}");
@@ -87,9 +94,9 @@ public partial class Build : NukeBuild
     }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>")]
-    Target Default => _ => _
-        .Executes(() =>
-        {
-            Assert.Fail("请指定一个 Target");
-        });
+    private Target Default => _ => _
+            .Executes(() =>
+            {
+                Assert.Fail("请指定一个 Target");
+            });
 }

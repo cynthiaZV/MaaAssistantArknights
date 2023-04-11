@@ -1,6 +1,6 @@
 [
     {
-        "name_template": "MAA-{VERSION}-win-x64",
+        "name_template": "MAA-{VERSION}-win-{PLATFORM}",
         "type": "MaaBundle",
         "configuration": {
             "include": [
@@ -9,76 +9,11 @@
         }
     },
     {
-        "name_template": "MAAComponent-OTA-{VERSION}-win-x64",
-        "type": "MaaBundleOta",
-        "configuration": {
-            "include": [
-                "resource/**",
-                "MeoAssistant.dll",
-                "MeoAsstGui.exe"
-            ],
-            "exclude": [
-                "**/PaddleOCR/**"
-            ],
-            "exclude_Doc": "v4.6.5-beta.2版本新增了PaddleCharOCR，暂时不放到exclude"
-        }
-    },
-    {
-        "name_template": "MAAComponent-Core-{VERSION}-win-x64",
-        "type": "MaaCore",
-        "configuration": {
-            "include": [
-                "MeoAssistant.dll"
-            ]
-        }
-    },
-    {
-        "name_template": "MAAComponent-Dependency-{VERSION}-win-x64",
-        "type": "MaaDependency",
-        "configuration": {
-            "include": [
-                "libiomp5md.dll",
-                "mkldnn.dll",
-                "mklml.dll",
-                "paddle_inference.dll",
-                "ppocr.dll",
-                "opencv_world453.dll",
-                "**/PaddleOCR/**",
-                "**/PaddleCharOCR/**"
-            ]
-        }
-    },
-    {
-        "name_template": "MAAComponent-DependencyNoAvx-{VERSION}-win-x64",
-        "type": "MaaDependencyNoAvx",
-        "configuration": {
-            "include": [
-                "opencv_world453.dll",
-                "**/PaddleOCR/**",
-                "**/PaddleCharOCR/**"
-            ],
-            "no_avx_bundle": "3rdparty/ppocr_noavx.zip"
-        }
-    },
-    {
-        "name_template": "MAAComponent-DebugSymbol-{VERSION}-win-x64",
+        "name_template": "MAAComponent-DebugSymbol-{VERSION}-win-{PLATFORM}",
         "type": "MaaDebugSymbol",
         "configuration": {
             "include": [
                 "**/*.pdb"
-            ]
-        }
-    },
-    {
-        "name_template": "MAAComponent-Resource-{VERSION}",
-        "type": "MaaResource",
-        "configuration": {
-            "include": [
-                "resource/**"
-            ],
-            "exclude": [
-                "**/PaddleOCR/**",
-                "**/PaddleCharOCR/**"
             ]
         }
     }

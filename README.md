@@ -18,7 +18,7 @@
 </div>
 <br>
 
-[简体中文](README.md) | [繁體中文](README_zh-TW.md) | [English](README_en-US.md) | [日本語](README_ja-JP.md)
+[简体中文](https://maa.plus/docs/) | [繁體中文](https://maa.plus/docs/zh-tw/) | [English](https://maa.plus/docs/en-us/) | [日本語](https://maa.plus/docs/ja-jp/) | [한국어](https://maa.plus/docs/ko-kr/)
 
 MAA 的意思是 MAA Assistant Arknights
 
@@ -26,21 +26,22 @@ MAA 的意思是 MAA Assistant Arknights
 
 基于图像识别技术，一键完成全部日常任务！
 
-绝赞更新中  ✿✿ヽ(°▽°)ノ✿  
+绝赞更新中  ✿✿ヽ(°▽°)ノ✿<br>
 
 </div>
 
 ## 亮点功能
 
 - 刷理智，掉落识别及上传 [企鹅物流](https://penguin-stats.cn/)
-- 智能基建换班，自动计算干员效率，单设施内最优解；同时也支持 [自定义排班](docs/3.6-%E5%9F%BA%E5%BB%BA%E6%8E%92%E7%8F%AD%E5%8D%8F%E8%AE%AE.md) （测试功能）
+- 智能基建换班，自动计算干员效率，单设施内最优解；同时也支持 [自定义排班](https://maa.plus/docs/3.6-基建排班协议.html)
 - 自动公招，可选使用加急许可，一次全部刷完！公招数据上传 [企鹅物流](https://penguin-stats.cn/result/stage/recruit/recruit)，[一图流](https://yituliu.site/maarecruitdata)
 - 访问好友、收取信用及购物、领取日常奖励等。一键全日常自动长草！
 - 肉鸽全自动刷源石锭和蜡烛，自动识别干员及练度
-- 导入作业 JSON 文件，自动抄作业！ [视频演示](https://www.bilibili.com/video/BV14u411673q/)
-- 新功能：仓库识别！支持导出至 [企鹅物流刷图规划器](https://penguin-stats.cn/planner), [明日方舟工具箱](https://arkn.lolicon.app/#/material), [ARK-NIGHTS 干员培养表](https://ark-nights.com/settings)
+- 选择作业 JSON 文件，自动抄作业！ [视频演示](https://www.bilibili.com/video/BV1H841177Fk/)
+- 仓库识别并支持导出至 [企鹅物流刷图规划器](https://penguin-stats.cn/planner), [明日方舟工具箱](https://arkn.lolicon.app/#/material), [ARK-NIGHTS 干员培养表](https://ark-nights.com/settings)
+- 支持 C, Python, Java, Rust, Golang, Java HTTP, Rust HTTP 等多种接口，方便集成调用，自定义你的 MAA！
 
-话不多说，看图！  
+话不多说，看图！<br>
 
 ![image](https://user-images.githubusercontent.com/18511905/189659056-67587818-9844-4f5a-b2f5-838a8932b387.png)
 ![image](https://user-images.githubusercontent.com/99072975/181418131-f4eefa07-6623-470e-ba4a-0ad15cb8aa91.png)
@@ -48,49 +49,45 @@ MAA 的意思是 MAA Assistant Arknights
 
 ## 下载地址
 
-[稳定版](https://github.com/MaaAssistantArknights/MaaAssistantArknights/releases/latest)  
-[测试版](https://github.com/MaaAssistantArknights/MaaAssistantArknights/releases)
+- [稳定版/公测版](https://github.com/MaaAssistantArknights/MaaAssistantArknights/releases)
+- [内测版](https://github.com/MaaAssistantArknights/MaaRelease/releases)
 
 ## 使用说明
 
 ### 基本说明
 
-1. 请根据 [模拟器支持情况](docs/1.3-模拟器支持.md)，进行对应的操作。
+1. 请根据 [模拟器支持情况](https://maa.plus/docs/1.3-模拟器支持.html)，进行对应的操作。
 2. 修改模拟器分辨率为 `16:9` 比例，最低 `1280 * 720`，更高不限。
 3. 开始使用吧！
 
-更多使用说明请参考 [详细介绍](docs/1.1-详细介绍.md)
+更多使用说明请参考 [详细介绍](https://maa.plus/docs/1.1-详细介绍.html)
 
 ## 常见问题
 
 - 软件一打开就闪退
 - 连接错误、不知道 adb 路径怎么填写
-- 识别错误/任务开始后一直不动、没有反应
+- 连接成功了，但没反应
 - 如何连接自定义端口
 - 下载速度慢，且镜像站无法打开网页
 - 下载到一半提示“登陆”/“鉴权”
+- 连接正常，任务开始了，但是没反应
 
-请参考 [常见问题](docs/1.2-常见问题.md)
+请参考 [常见问题](https://maa.plus/docs/1.2-常见问题.html)
 
 ## 外服支持
 
-- 国际服（美服）  
-  支持基本的刷理智、信用购物、访问好友、领取奖励、自动肉鸽（测试版本）、公招识别，请参考 [说明](resource/global/YoStarEN/readme.md)
-- 日服  
-  支持基本的刷理智、信用购物、自动公招、访问好友、领取奖励、自动肉鸽（测试版本）、公招识别，请参考 [说明](resource/global/YoStarJP/readme.md)
-- 韩服  
-  支持基本的刷理智功能，请参考 [说明](resource/global/YoStarKR/readme.md)
-- 繁中服  
-  支持基本的刷理智、自动公招、公招识别功能，请参考 [说明](resource/global/txwy/readme.md)
-
-由于外服用户较少及项目人手不足的问题，外服目前都仅适配了基本的功能。若您有强需求，欢迎在 [讨论区](https://github.com/MaaAssistantArknights/MaaAssistantArknights/discussions) 催更，或加入我们一起建设 MAA！
+目前国际服（美服）、日服、韩服、繁中服的绝大部分功能均已支持。但由于外服用户较少及项目人手不足，很多功能并没有进行全面的测试，所以请自行体验。  
+若您遇到了 Bug，或对某个功能有强需求，欢迎在 [Issues](https://github.com/MaaAssistantArknights/MaaAssistantArknights/issues) 和 [讨论区](https://github.com/MaaAssistantArknights/MaaAssistantArknights/discussions) 催更；或加入我们一起建设 MAA！请参考 [外服适配教程](#外服适配)
 
 ## 主要关联项目
 
+**目前项目组非常缺前端大佬，若您有相关经验，欢迎加入我们！**
+
 - 全新 GUI：[MaaAsstElectronUI](https://github.com/MaaAssistantArknights/MaaAsstElectronUI) （正在开发中，欢迎加入！）
-- 数据服务器：[MaaGameDataServer](https://github.com/MaaAssistantArknights/MaaGameDataServer)
-- 官网 [maa.plus](https://maa.plus)：[maa-website](https://github.com/MaaAssistantArknights/maa-website)
-- 作业分享站 [prts.plus](https://prts.plus) 或 [抄作业.com](http://抄作业.com)：[前端](https://github.com/MaaAssistantArknights/maa-copilot-frontend)，[后端](https://github.com/MaaAssistantArknights/MaaCopilotServer)
+- [作业站](https://prts.plus) 前端：[maa-copilot-frontend](https://github.com/MaaAssistantArknights/maa-copilot-frontend) （正在开发中，欢迎加入！）
+- [作业站](https://prts.plus) 后端：[MaaBackendCenter](https://github.com/MaaAssistantArknights/MaaBackendCenter)
+- [官网](https://maa.plus)：[前端](https://github.com/MaaAssistantArknights/maa-website)
+- 深度学习：[MaaAI](https://github.com/MaaAssistantArknights/MaaAI)
 
 ## 致谢
 
@@ -99,6 +96,8 @@ MAA 的意思是 MAA Assistant Arknights
 - 图像识别库：[opencv](https://github.com/opencv/opencv.git)
 - ~~文字识别库：[chineseocr_lite](https://github.com/DayBreak-u/chineseocr_lite.git)~~
 - 文字识别库：[PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
+- 深度学习部署库：[FastDeploy](https://github.com/PaddlePaddle/FastDeploy)
+- 机器学习加速器：[onnxruntime](https://github.com/microsoft/onnxruntime)
 - ~~关卡掉落识别：[企鹅物流识别](https://github.com/penguin-statistics/recognizer)~~
 - 地图格子识别：[Arknights-Tile-Pos](https://github.com/yuanyan3060/Arknights-Tile-Pos)
 - C++ JSON库：[meojson](https://github.com/MistEO/meojson.git)
@@ -106,17 +105,20 @@ MAA 的意思是 MAA Assistant Arknights
 - ~~C++ base64编解码：[cpp-base64](https://github.com/ReneNyffenegger/cpp-base64)~~
 - C++ 解压压缩库：[zlib](https://github.com/madler/zlib)
 - C++ Gzip封装：[gzip-hpp](https://github.com/mapbox/gzip-hpp)
-- WPF MVVW框架：[Stylet](https://github.com/canton7/Stylet)
-- WPF控件库：[HandyControl](https://github.com/HandyOrg/HandyControl)
-- C# JSON库：[Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)
-- 下载器：[aria2](https://github.com/aria2/aria2)
+- 安卓触控事件器：[minitouch](https://github.com/openstf/minitouch)
+- 安卓触控事件器：[MaaTouch](https://github.com/MaaAssistantArknights/MaaTouch)
+- WPF MVVM框架：[Stylet](https://github.com/canton7/Stylet)
+- WPF控件库：[HandyControl](https://github.com/HandyOrg/HandyControl) -> [HandyControls](https://github.com/ghost1372/HandyControls)
+- C# 日志：[Serilog](https://github.com/serilog/serilog)
+- C# JSON库：[Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json) & [System.Text.Json](https://github.com/dotnet/runtime)
+- ~~下载器：[aria2](https://github.com/aria2/aria2)~~
 
 ### 数据源
 
 - ~~公开招募数据：[明日方舟工具箱](https://www.bigfun.cn/tools/aktools/hr)~~
 - 干员及基建数据：[PRTS明日方舟中文WIKI](http://prts.wiki/)
 - 关卡数据：[企鹅物流数据统计](https://penguin-stats.cn/)
-- 游戏数据及資源：[明日方舟bot常用素材](https://github.com/yuanyan3060/Arknights-Bot-Resource)
+- 游戏数据及资源：[明日方舟bot常用素材](https://github.com/yuanyan3060/Arknights-Bot-Resource)
 - 游戏数据：[《明日方舟》游戏数据](https://github.com/Kengxxiao/ArknightsGameData)
 
 ### 贡献/参与者
@@ -129,37 +131,47 @@ MAA 的意思是 MAA Assistant Arknights
 
 ### Windows
 
-- 直接使用 Visual Studio 2022 打开 `MeoAssistantArknights.sln` 即可，所有环境都是配置好的
-- 建议启用 clang-format 支持，详细内容可以参考 [在 Visual Studio 中启用 clang-format](docs/2.2-开发相关.md#在-visual-studio-中启用-clang-format)
+1. 下载预构建的第三方库
+
+    ```cmd
+    python maadeps-download.py
+    ```
+
+2. 使用 Visual Studio 2022 打开 `MAA.sln`，右键 `MaaWpfGui`，设为启动项目
+3. VS 上方配置选择 `RelWithDebInfo` `x64` （如果编译 Release 包 或 ARM 平台，请忽略这步）
+4. 右键 `MaaWpfGui` - 属性 - 调试 - 启用本地调试（这样就能把断点挂到 C++ Core 那边了）
+5. （可选）若准备提交 PR，建议启用 [clang-format 支持](https://maa.plus/docs/2.2-开发相关.html#在-visual-studio-中启用-clang-format)
 
 ### Linux | macOS
 
-请参考 [Linux 编译教程](docs/2.1-Linux编译教程.md)
+请参考 [Linux 编译教程](https://maa.plus/docs/2.1-Linux编译教程.html)
 
 ### API
 
-- [C 接口](include/AsstCaller.h)：[集成示例](tools/TestCaller/main.cpp)
-- [Python 接口](src/Python/asst.py)：[集成示例](src/Python/sample.py)
-- [Golang 接口](src/Golang/MaaAssistantArknights/)：[集成示例](src/Golang/MaaAssistantArknights/maa/maa.go)
-- [Dart 接口](src/dart/)
-- [Java 接口](src/Java/Maaj/src/main/java/com/iguigui/maaj/easySample/MeoAssistant.java)：[集成示例](src/Java/Maaj/src/main/java/com/iguigui/maaj/easySample/MaaJavaSample.java)
-- [Java HTTP 接口](src/Java/Maaj/Readme.md)
+- [C 接口](include/AsstCaller.h)：[集成示例](src/Cpp/main.cpp)
+- [Python 接口](src/Python/asst/asst.py)：[集成示例](src/Python/sample.py)
+- [Golang 接口](src/Golang/)：[集成示例](src/Golang/maa/maa.go)
+- [Dart 接口](src/Dart/)
+- [Java 接口](src/Java/src/main/java/com/iguigui/maaj/easySample/MaaCore.java)：[集成示例](src/Java/src/main/java/com/iguigui/maaj/easySample/MaaJavaSample.java)
+- [Java HTTP 接口](src/Java/Readme.md)
 - [Rust 接口](src/Rust/src/maa_sys/)：[HTTP 接口](src/Rust)
-- [集成文档](docs/3.1-集成文档.md)
-- [回调消息协议](docs/3.2-回调消息协议.md)
-- [任务流程协议](docs/3.4-任务流程协议.md)
-- [自动抄作业协议](docs/3.3-战斗流程协议.md)
+- [TypeScript 接口](https://github.com/MaaAssistantArknights/MaaAsstElectronUI/tree/main/packages/main/coreLoader)
+- [集成文档](https://maa.plus/docs/3.1-集成文档.html)
+- [回调消息协议](https://maa.plus/docs/3.2-回调消息协议.html)
+- [任务流程协议](https://maa.plus/docs/3.4-任务流程协议.html)
+- [自动抄作业协议](https://maa.plus/docs/3.3-战斗流程协议.html)
 
-### Issue bot
+### 外服适配
 
-- 使用 `Add {LABEL_NAME}` 增加标签，使用 `Remove {LABEL_NAME}` 删除标签。
-- 在提交说明中用 `close #{ISSUE_NUMBER}` 或 `fix #{ISSUE_NUMBER}` 给对应议题增加 `fixed` 标签。
-
-更多说明请参考 [Issue bot 使用方法](docs/2.3-IssueBot使用方法.md)。
+请参考 [外服适配教程](https://maa.plus/docs/2.5-外服适配教程.html)，对于国服已支持的功能，绝大部分的外服适配工作仅需要截图 + 简单的 JSON 修改即可。
 
 ### 想参与开发，但不太会用 Github?
 
-[Github Pull Request 流程简述](docs/2.2-开发相关.md#github-pull-request-流程简述)
+[Github Pull Request 流程简述](https://maa.plus/docs/2.2-开发相关.html#github-pull-request-流程简述)
+
+### Issue bot
+
+请参考 [Issue bot 使用方法](https://maa.plus/docs/2.3-IssueBot使用方法.html)
 
 ## 声明
 
@@ -168,10 +180,12 @@ MAA 的意思是 MAA Assistant Arknights
 
 ## 广告
 
-用户交流群：[Telegram 群](https://t.me/+Mgc2Zngr-hs3ZjU1)，[QQ 一群（已满）](https://jq.qq.com/?_wv=1027&k=ig786LJZ)，[QQ 二群（已满）](https://jq.qq.com/?_wv=1027&k=R3oleoKc)，[QQ 三群（已满）](https://jq.qq.com/?_wv=1027&k=mKdOnhWV)，[QQ 四群（已满）](https://jq.qq.com/?_wv=1027&k=ABkU8mCR)，[QQ 五群（已满）](https://jq.qq.com/?_wv=1027&amp;k=To6b6H6m)，[QQ 六群](https://jq.qq.com/?_wv=1027&k=PYoCP2lS)  
-自动战斗 JSON 作业分享：[prts.plus](https://prts.plus) 或 [抄作业.com](http://抄作业.com)  
-[Bilibili 直播间](https://live.bilibili.com/2808861)：每晚直播敲代码，近期很长一段时间应该都是在写本软件~  
-[舟无关技术交流 & 吹水群（QQ 群）](https://jq.qq.com/?_wv=1027&k=ypbzXcA2)：内卷地狱！  
-[开发者群（QQ 群）](https://jq.qq.com/?_wv=1027&k=JM9oCk3C)  
+用户交流 QQ 群：[MAA 使用 & 粥游交流 QQ 群](https://ota.maa.plus/MaaAssistantArknights/api/qqgroup/index.html)<br>
+用户交流 TG 群：[Telegram 群](https://t.me/+Mgc2Zngr-hs3ZjU1)<br>
+自动战斗 JSON 作业分享：[prts.plus](https://prts.plus) 或 [抄作业.com](http://抄作业.com)<br>
+Bilibili 直播间：[直播间](https://live.bilibili.com/2808861) 每晚直播敲代码，近期很长一段时间应该都是在写本软件~<br>
+
+技术 & 吹水群（舟无关）：[内卷地狱！(QQ 群)](https://jq.qq.com/?_wv=1027&k=ypbzXcA2)<br>
+开发者群：[QQ 群](https://jq.qq.com/?_wv=1027&k=JM9oCk3C)<br>
 
 如果觉得软件对你有帮助，帮忙点个 Star 吧！~（网页最上方右上角的小星星），这就是对我们最大的支持了！

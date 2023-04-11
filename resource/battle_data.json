@@ -20,7 +20,10 @@
                 "3-8",
                 "3-10"
             ],
-            "rarity": 6
+            "rarity": 6,
+            "tokens": [
+                "Mon3tr"
+            ]
         },
         "char_009_12fce": {
             "name": "12F",
@@ -86,7 +89,10 @@
                 "x-1",
                 "x-1"
             ],
-            "rarity": 6
+            "rarity": 6,
+            "tokens": [
+                "斯卡蒂的海嗣"
+            ]
         },
         "char_1013_chen2": {
             "name": "假日威龙陈",
@@ -108,7 +114,10 @@
                 "1-1",
                 "1-1"
             ],
-            "rarity": 6
+            "rarity": 6,
+            "tokens": [
+                "“耀阳”"
+            ]
         },
         "char_101_sora": {
             "name": "空",
@@ -120,6 +129,17 @@
                 "x-1"
             ],
             "rarity": 5
+        },
+        "char_1020_reed2": {
+            "name": "焰影苇草",
+            "position": "RANGED",
+            "profession": "MEDIC",
+            "rangeId": [
+                "3-1",
+                "3-3",
+                "3-3"
+            ],
+            "rarity": 6
         },
         "char_1021_kroos2": {
             "name": "寒芒克洛丝",
@@ -176,10 +196,43 @@
             ],
             "rarity": 5
         },
+        "char_1028_texas2": {
+            "name": "缄默德克萨斯",
+            "position": "MELEE",
+            "profession": "SPECIAL",
+            "rangeId": [
+                "1-1",
+                "1-1",
+                "1-1"
+            ],
+            "rarity": 6
+        },
+        "char_1029_yato2": {
+            "name": "麒麟X夜刀",
+            "position": "MELEE",
+            "profession": "SPECIAL",
+            "rangeId": [
+                "1-1",
+                "1-1",
+                "1-1"
+            ],
+            "rarity": 6
+        },
         "char_102_texas": {
             "name": "德克萨斯",
             "position": "MELEE",
             "profession": "PIONEER",
+            "rangeId": [
+                "1-1",
+                "1-1",
+                "1-1"
+            ],
+            "rarity": 5
+        },
+        "char_1030_noirc2": {
+            "name": "火龙S黑角",
+            "position": "MELEE",
+            "profession": "WARRIOR",
             "rangeId": [
                 "1-1",
                 "1-1",
@@ -229,7 +282,10 @@
                 "3-3",
                 "3-3"
             ],
-            "rarity": 5
+            "rarity": 5,
+            "tokens": [
+                "医疗探机"
+            ]
         },
         "char_109_fmout": {
             "name": "远山",
@@ -251,7 +307,10 @@
                 "3-1",
                 "3-1"
             ],
-            "rarity": 4
+            "rarity": 4,
+            "tokens": [
+                "触手"
+            ]
         },
         "char_112_siege": {
             "name": "推进之王",
@@ -273,7 +332,10 @@
                 "3-8",
                 "3-10"
             ],
-            "rarity": 6
+            "rarity": 6,
+            "tokens": [
+                "此面向敌"
+            ]
         },
         "char_115_headbr": {
             "name": "凛冬",
@@ -594,6 +656,17 @@
             ],
             "rarity": 4
         },
+        "char_154_morgan": {
+            "name": "摩根",
+            "position": "MELEE",
+            "profession": "WARRIOR",
+            "rangeId": [
+                "1-1",
+                "1-1",
+                "1-1"
+            ],
+            "rarity": 5
+        },
         "char_155_tiger": {
             "name": "因陀罗",
             "position": "MELEE",
@@ -724,7 +797,10 @@
                 "y-2",
                 "y-2"
             ],
-            "rarity": 6
+            "rarity": 6,
+            "tokens": [
+                "幻影"
+            ]
         },
         "char_180_amgoat": {
             "name": "艾雅法拉",
@@ -911,7 +987,10 @@
                 "3-6",
                 "3-6"
             ],
-            "rarity": 6
+            "rarity": 6,
+            "tokens": [
+                "\"小自在\""
+            ]
         },
         "char_201_moeshd": {
             "name": "可颂",
@@ -932,6 +1011,22 @@
                 "3-6",
                 "3-1",
                 "3-1"
+            ],
+            "rarity": 6,
+            "tokens": [
+                "“清平”",
+                "“逍遥”",
+                "“弦惊”"
+            ]
+        },
+        "char_2024_chyue": {
+            "name": "重岳",
+            "position": "MELEE",
+            "profession": "WARRIOR",
+            "rangeId": [
+                "1-1",
+                "1-1",
+                "1-1"
             ],
             "rarity": 6
         },
@@ -1197,7 +1292,10 @@
                 "3-1",
                 "3-1"
             ],
-            "rarity": 5
+            "rarity": 5,
+            "tokens": [
+                "机械水獭"
+            ]
         },
         "char_243_waaifu": {
             "name": "槐琥",
@@ -1219,7 +1317,12 @@
                 "3-1",
                 "3-1"
             ],
-            "rarity": 6
+            "rarity": 6,
+            "tokens": [
+                "龙腾.F",
+                "龙腾.L",
+                "龙腾.A"
+            ]
         },
         "char_250_phatom": {
             "name": "傀影",
@@ -1230,7 +1333,10 @@
                 "1-1",
                 "1-1"
             ],
-            "rarity": 6
+            "rarity": 6,
+            "tokens": [
+                "镜中虚影"
+            ]
         },
         "char_252_bibeak": {
             "name": "柏喙",
@@ -1263,7 +1369,10 @@
                 "y-6",
                 "y-6"
             ],
-            "rarity": 5
+            "rarity": 5,
+            "tokens": [
+                "诅咒娃娃"
+            ]
         },
         "char_258_podego": {
             "name": "波登可",
@@ -1529,6 +1638,17 @@
             ],
             "rarity": 5
         },
+        "char_297_hamoni": {
+            "name": "和弦",
+            "position": "RANGED",
+            "profession": "CASTER",
+            "rangeId": [
+                "3-13",
+                "3-14",
+                "3-14"
+            ],
+            "rarity": 5
+        },
         "char_298_susuro": {
             "name": "苏苏洛",
             "position": "RANGED",
@@ -1692,7 +1812,10 @@
                 "3-1",
                 "3-1"
             ],
-            "rarity": 5
+            "rarity": 5,
+            "tokens": [
+                "移动摄影器"
+            ]
         },
         "char_337_utage": {
             "name": "宴",
@@ -1747,7 +1870,10 @@
                 "x-1",
                 "x-1"
             ],
-            "rarity": 5
+            "rarity": 5,
+            "tokens": [
+                "沙之碑"
+            ]
         },
         "char_345_folnic": {
             "name": "亚叶",
@@ -2022,7 +2148,10 @@
                 "3-9",
                 "3-9"
             ],
-            "rarity": 6
+            "rarity": 6,
+            "tokens": [
+                "迷迭香的战术装备"
+            ]
         },
         "char_4000_jnight": {
             "name": "正义骑士号",
@@ -2066,7 +2195,10 @@
                 "1-1",
                 "1-1"
             ],
-            "rarity": 6
+            "rarity": 6,
+            "tokens": [
+                "工程蓄水炮"
+            ]
         },
         "char_4013_kjera": {
             "name": "耶拉",
@@ -2079,6 +2211,17 @@
             ],
             "rarity": 5
         },
+        "char_4014_lunacu": {
+            "name": "子月",
+            "position": "RANGED",
+            "profession": "SNIPER",
+            "rangeId": [
+                "3-3",
+                "3-9",
+                "3-9"
+            ],
+            "rarity": 5
+        },
         "char_4016_kazema": {
             "name": "风丸",
             "position": "MELEE",
@@ -2087,6 +2230,20 @@
                 "1-1",
                 "1-1",
                 "1-1"
+            ],
+            "rarity": 5,
+            "tokens": [
+                "纸偶"
+            ]
+        },
+        "char_4017_puzzle": {
+            "name": "谜图",
+            "position": "MELEE",
+            "profession": "PIONEER",
+            "rangeId": [
+                "2-2",
+                "2-2",
+                "2-2"
             ],
             "rarity": 5
         },
@@ -2231,7 +2388,10 @@
                 "3-14",
                 "3-14"
             ],
-            "rarity": 6
+            "rarity": 6,
+            "tokens": [
+                "旧日残影"
+            ]
         },
         "char_4047_pianst": {
             "name": "车尔尼",
@@ -2253,7 +2413,10 @@
                 "3-3",
                 "3-3"
             ],
-            "rarity": 6
+            "rarity": 6,
+            "tokens": [
+                "共振装置"
+            ]
         },
         "char_4054_malist": {
             "name": "至简",
@@ -2275,7 +2438,10 @@
                 "3-6",
                 "3-6"
             ],
-            "rarity": 6
+            "rarity": 6,
+            "tokens": [
+                "“打字机”"
+            ]
         },
         "char_405_absin": {
             "name": "苦艾",
@@ -2299,6 +2465,17 @@
             ],
             "rarity": 4
         },
+        "char_4063_quartz": {
+            "name": "石英",
+            "position": "MELEE",
+            "profession": "WARRIOR",
+            "rangeId": [
+                "1-1",
+                "1-1",
+                "1-1"
+            ],
+            "rarity": 4
+        },
         "char_4064_mlynar": {
             "name": "玛恩纳",
             "position": "MELEE",
@@ -2307,6 +2484,17 @@
                 "1-2",
                 "1-2",
                 "1-2"
+            ],
+            "rarity": 6
+        },
+        "char_4065_judge": {
+            "name": "斥罪",
+            "position": "MELEE",
+            "profession": "TANK",
+            "rangeId": [
+                "1-1",
+                "1-1",
+                "1-1"
             ],
             "rarity": 6
         },
@@ -2352,7 +2540,89 @@
                 "1-1",
                 "1-1"
             ],
+            "rarity": 6,
+            "tokens": [
+                "白铁™多功能平台",
+                "白铁™多功能平台",
+                "铁钳号·原型机"
+            ]
+        },
+        "char_4077_palico": {
+            "name": "泰拉大陆调查团",
+            "position": "RANGED",
+            "profession": "SNIPER",
+            "rangeId": [
+                "3-3",
+                "3-3",
+                "3-3"
+            ],
+            "rarity": 1
+        },
+        "char_4078_bdhkgt": {
+            "name": "截云",
+            "position": "RANGED",
+            "profession": "SNIPER",
+            "rangeId": [
+                "3-3",
+                "3-8",
+                "3-10"
+            ],
+            "rarity": 5
+        },
+        "char_4080_lin": {
+            "name": "林",
+            "position": "RANGED",
+            "profession": "CASTER",
+            "rangeId": [
+                "x-4",
+                "x-1",
+                "x-1"
+            ],
             "rarity": 6
+        },
+        "char_4082_qiubai": {
+            "name": "仇白",
+            "position": "MELEE",
+            "profession": "WARRIOR",
+            "rangeId": [
+                "2-3",
+                "3-12",
+                "3-12"
+            ],
+            "rarity": 6
+        },
+        "char_4083_chimes": {
+            "name": "铎铃",
+            "position": "MELEE",
+            "profession": "WARRIOR",
+            "rangeId": [
+                "1-1",
+                "1-1",
+                "1-1"
+            ],
+            "rarity": 5
+        },
+        "char_4087_ines": {
+            "name": "伊内丝",
+            "position": "MELEE",
+            "profession": "PIONEER",
+            "rangeId": [
+                "2-2",
+                "2-2",
+                "2-2"
+            ],
+            "rarity": 6
+        },
+        "char_4091_ulika": {
+            "name": "U-Official",
+            "position": "RANGED",
+            "profession": "SUPPORT",
+            "rangeId": [
+                "x-4",
+                "x-4",
+                "x-4"
+            ],
+            "rarity": 1
         },
         "char_411_tomimi": {
             "name": "特米米",
@@ -2442,6 +2712,20 @@
             ],
             "rarity": 6
         },
+        "char_427_vigil": {
+            "name": "伺夜",
+            "position": "RANGED",
+            "profession": "PIONEER",
+            "rangeId": [
+                "3-1",
+                "3-3",
+                "3-3"
+            ],
+            "rarity": 6,
+            "tokens": [
+                "狼群"
+            ]
+        },
         "char_430_fartth": {
             "name": "远牙",
             "position": "RANGED",
@@ -2473,7 +2757,10 @@
                 "1-1",
                 "1-1"
             ],
-            "rarity": 5
+            "rarity": 5,
+            "tokens": [
+                "可靠电池"
+            ]
         },
         "char_436_whispr": {
             "name": "絮雨",
@@ -2528,7 +2815,10 @@
                 "3-3",
                 "3-3"
             ],
-            "rarity": 5
+            "rarity": 5,
+            "tokens": [
+                "\"夹子\""
+            ]
         },
         "char_452_bstalk": {
             "name": "豆苗",
@@ -2539,7 +2829,10 @@
                 "3-3",
                 "3-3"
             ],
-            "rarity": 4
+            "rarity": 4,
+            "tokens": [
+                "磐蟹护卫队"
+            ]
         },
         "char_455_nothin": {
             "name": "乌有",
@@ -2583,7 +2876,10 @@
                 "3-3",
                 "3-3"
             ],
-            "rarity": 5
+            "rarity": 5,
+            "tokens": [
+                "迎宾踏垫"
+            ]
         },
         "char_459_tachak": {
             "name": "战车",
@@ -2593,6 +2889,28 @@
                 "1-1",
                 "1-1",
                 "1-1"
+            ],
+            "rarity": 5
+        },
+        "char_464_cement": {
+            "name": "洋灰",
+            "position": "MELEE",
+            "profession": "TANK",
+            "rangeId": [
+                "1-1",
+                "1-1",
+                "1-1"
+            ],
+            "rarity": 5
+        },
+        "char_466_qanik": {
+            "name": "雪绒",
+            "position": "RANGED",
+            "profession": "CASTER",
+            "rangeId": [
+                "3-6",
+                "3-1",
+                "3-1"
             ],
             "rarity": 5
         },
@@ -2660,7 +2978,10 @@
                 "3-3",
                 "3-3"
             ],
-            "rarity": 5
+            "rarity": 5,
+            "tokens": [
+                "眠兽"
+            ]
         },
         "char_478_kirara": {
             "name": "绮良",
@@ -2693,7 +3014,10 @@
                 "1-1",
                 "1-1"
             ],
-            "rarity": 4
+            "rarity": 4,
+            "tokens": [
+                "全自动造型仪"
+            ]
         },
         "char_485_pallas": {
             "name": "帕拉斯",
@@ -2728,6 +3052,17 @@
             ],
             "rarity": 5
         },
+        "char_491_humus": {
+            "name": "休谟斯",
+            "position": "MELEE",
+            "profession": "WARRIOR",
+            "rangeId": [
+                "1-3",
+                "1-3",
+                "1-3"
+            ],
+            "rarity": 4
+        },
         "char_492_quercu": {
             "name": "夏栎",
             "position": "RANGED",
@@ -2736,6 +3071,17 @@
                 "y-2",
                 "y-6",
                 "y-6"
+            ],
+            "rarity": 5
+        },
+        "char_493_firwhl": {
+            "name": "火哨",
+            "position": "MELEE",
+            "profession": "TANK",
+            "rangeId": [
+                "4-5",
+                "4-5",
+                "4-6"
             ],
             "rarity": 5
         },
@@ -3297,6 +3643,17 @@
                 "3-13",
                 "3-13",
                 "3-13"
+            ],
+            "rarity": 6
+        },
+        "token_10028_vigil_wolf": {
+            "name": "狼群",
+            "position": "MELEE",
+            "profession": "TOKEN",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
             ],
             "rarity": 6
         },
@@ -4268,6 +4625,17 @@
             ],
             "rarity": 1
         },
+        "trap_092_vgctrl": {
+            "name": "复仇黑手",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
         "trap_093_tbattbc": {
             "name": "钳兽壳粉",
             "position": "NONE",
@@ -4292,6 +4660,699 @@
         },
         "trap_095_tbsmmc": {
             "name": "芳香精油",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_096_gflag": {
+            "name": "山海密语仪",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_097_hstone": {
+            "name": "城防路障",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_098_mire": {
+            "name": "沼泽控制",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_099_mhflsb": {
+            "name": "眩光手雷",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "2-7",
+                "2-7",
+                "2-7"
+            ],
+            "rarity": 1
+        },
+        "trap_100_mhlbmb": {
+            "name": "高能源石爆桶",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "x-4",
+                "x-4",
+                "x-4"
+            ],
+            "rarity": 1
+        },
+        "trap_101_mhshok": {
+            "name": "高压脉冲诡雷",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_102_mhwrbg": {
+            "name": "滞空牵引无人机",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_103_ymdgct": {
+            "name": "地形增伤控制",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_104_dplant": {
+            "name": "改性植物激素",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "x-5",
+                "x-5",
+                "x-5"
+            ],
+            "rarity": 1
+        },
+        "trap_105_mhwrct": {
+            "name": "滞空牵引无人机",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_111_wdfarm": {
+            "name": "街头应急储备",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_116_stdurk": {
+            "name": "“过去的我”",
+            "position": "RANGED",
+            "profession": "TRAP",
+            "rangeId": [
+                "3-6",
+                "3-6",
+                "3-6"
+            ],
+            "rarity": 1
+        },
+        "trap_400_xbfarm": {
+            "name": "便携式种植槽",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_401_xbfato": {
+            "name": "采集实习站",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "3-15",
+                "3-15",
+                "3-15"
+            ],
+            "rarity": 1
+        },
+        "trap_403_wfactory": {
+            "name": "蟹蟹抽水泵",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_404_xbfortress": {
+            "name": "坚固筑台",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_405_xbroadblock": {
+            "name": "都市风壁障",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_406_xboverwatch": {
+            "name": "监控塔",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_408_xbbase": {
+            "name": "基地",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_409_xbwood": {
+            "name": "杂木林",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "x-5",
+                "x-5",
+                "x-5"
+            ],
+            "rarity": 1
+        },
+        "trap_410_xbstone": {
+            "name": "巨大岩石",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "x-5",
+                "x-5",
+                "x-5"
+            ],
+            "rarity": 1
+        },
+        "trap_411_xbiron": {
+            "name": "奇异矿脉",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "x-5",
+                "x-5",
+                "x-5"
+            ],
+            "rarity": 1
+        },
+        "trap_412_redtower": {
+            "name": "移动战塔",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_413_hiddenstone": {
+            "name": "遗迹残骸",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_414_vegetation": {
+            "name": "灌木丛",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_415_trademan": {
+            "name": "联络员",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_416_gtreasure": {
+            "name": "埋没金属箱",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_417_shielder": {
+            "name": "护盾遥控器",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "1-1",
+                "1-1",
+                "1-1"
+            ],
+            "rarity": 1
+        },
+        "trap_418_smokebomb": {
+            "name": "安眠迷香",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "x-4",
+                "x-4",
+                "x-4"
+            ],
+            "rarity": 1
+        },
+        "trap_419_enhancer": {
+            "name": "醒神秘药",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "1-1",
+                "1-1",
+                "1-1"
+            ],
+            "rarity": 1
+        },
+        "trap_420_umbrella": {
+            "name": "反侦察藏匿机",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "x-4",
+                "x-4",
+                "x-4"
+            ],
+            "rarity": 1
+        },
+        "trap_421_repairman": {
+            "name": "应急修理车",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "1-1",
+                "1-1",
+                "1-1"
+            ],
+            "rarity": 1
+        },
+        "trap_422_streasure": {
+            "name": "宝刺金属箱",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_423_bondtw": {
+            "name": "缚网发射台",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_424_pushtw": {
+            "name": "喷拒器",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_425_xbwall": {
+            "name": "防御工事",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_426_xbmrcl": {
+            "name": "模块演算设施",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_427_xbprsh": {
+            "name": "资源规划站",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_428_xblrsh": {
+            "name": "备勤激活站",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_429_xbescp": {
+            "name": "跨地块通讯站",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_430_wdescp": {
+            "name": "逃脱点",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_431_xbgldn": {
+            "name": "冶铸台",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_432_oldisin": {
+            "name": "老伊辛",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_433_sandsdr": {
+            "name": "“沙卒”",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "3-1",
+                "3-1",
+                "3-1"
+            ],
+            "rarity": 1
+        },
+        "trap_434_klmantc": {
+            "name": "曼提柯杀手",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "y-1",
+                "y-1",
+                "y-1"
+            ],
+            "rarity": 1
+        },
+        "trap_435_trsrhuntr": {
+            "name": "寻宝人",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_437_poachr": {
+            "name": "老练猎手",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "x-3",
+                "x-3",
+                "x-3"
+            ],
+            "rarity": 1
+        },
+        "trap_438_xbfato2": {
+            "name": "采集专员站",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "3-15",
+                "3-15",
+                "3-15"
+            ],
+            "rarity": 1
+        },
+        "trap_439_xbfato3": {
+            "name": "采集主任站",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "3-15",
+                "3-15",
+                "3-15"
+            ],
+            "rarity": 1
+        },
+        "trap_700_cdabyss": {
+            "name": "阿戈尔示波器",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_701_cdabyssa": {
+            "name": "阿戈尔示波器",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_702_cdabyssb": {
+            "name": "阿戈尔示波器",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_703_cdcredit": {
+            "name": "自适应补给元件",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_704_cdcredita": {
+            "name": "自适应补给元件",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_705_cdcreditb": {
+            "name": "自适应补给元件",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_706_cdshield": {
+            "name": "镀膜装置导能阀",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "1-1",
+                "1-1",
+                "1-1"
+            ],
+            "rarity": 1
+        },
+        "trap_707_cdshielda": {
+            "name": "重整导能组件",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_708_cdshieldb": {
+            "name": "镀膜装置导能阀",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "1-1",
+                "1-1",
+                "1-1"
+            ],
+            "rarity": 1
+        },
+        "trap_709_cdbeacon": {
+            "name": "丛林用示踪信标",
+            "position": "MELEE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_710_cdbeacona": {
+            "name": "阻断波长",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_711_cdbeaconb": {
+            "name": "干扰波长",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_712_cdhvrk": {
+            "name": "超重绝缘水泥",
+            "position": "NONE",
+            "profession": "TRAP",
+            "rangeId": [
+                "0-1",
+                "0-1",
+                "0-1"
+            ],
+            "rarity": 1
+        },
+        "trap_713_cdflsb": {
+            "name": "劣质闪光弹",
             "position": "NONE",
             "profession": "TRAP",
             "rangeId": [
@@ -4349,6 +5410,32 @@
             [
                 1,
                 0
+            ],
+            [
+                1,
+                -1
+            ]
+        ],
+        "1-4": [
+            [
+                0,
+                1
+            ],
+            [
+                1,
+                1
+            ],
+            [
+                0,
+                0
+            ],
+            [
+                1,
+                0
+            ],
+            [
+                0,
+                -1
             ],
             [
                 1,
@@ -4525,6 +5612,12 @@
             [
                 2,
                 -2
+            ]
+        ],
+        "2-7": [
+            [
+                2,
+                0
             ]
         ],
         "3-1": [
@@ -5681,6 +6774,108 @@
                 -1
             ]
         ],
+        "4-8": [
+            [
+                3,
+                3
+            ],
+            [
+                2,
+                2
+            ],
+            [
+                3,
+                2
+            ],
+            [
+                4,
+                2
+            ],
+            [
+                1,
+                1
+            ],
+            [
+                2,
+                1
+            ],
+            [
+                3,
+                1
+            ],
+            [
+                4,
+                1
+            ],
+            [
+                5,
+                1
+            ],
+            [
+                0,
+                0
+            ],
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ],
+            [
+                3,
+                0
+            ],
+            [
+                4,
+                0
+            ],
+            [
+                5,
+                0
+            ],
+            [
+                6,
+                0
+            ],
+            [
+                1,
+                -1
+            ],
+            [
+                2,
+                -1
+            ],
+            [
+                3,
+                -1
+            ],
+            [
+                4,
+                -1
+            ],
+            [
+                5,
+                -1
+            ],
+            [
+                2,
+                -2
+            ],
+            [
+                3,
+                -2
+            ],
+            [
+                4,
+                -2
+            ],
+            [
+                3,
+                -3
+            ]
+        ],
         "5-1": [
             [
                 0,
@@ -6641,6 +7836,108 @@
             [
                 2,
                 -2
+            ]
+        ],
+        "y-9": [
+            [
+                2,
+                3
+            ],
+            [
+                1,
+                2
+            ],
+            [
+                2,
+                2
+            ],
+            [
+                3,
+                2
+            ],
+            [
+                0,
+                1
+            ],
+            [
+                1,
+                1
+            ],
+            [
+                2,
+                1
+            ],
+            [
+                3,
+                1
+            ],
+            [
+                4,
+                1
+            ],
+            [
+                -1,
+                0
+            ],
+            [
+                0,
+                0
+            ],
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ],
+            [
+                3,
+                0
+            ],
+            [
+                4,
+                0
+            ],
+            [
+                5,
+                0
+            ],
+            [
+                0,
+                -1
+            ],
+            [
+                1,
+                -1
+            ],
+            [
+                2,
+                -1
+            ],
+            [
+                3,
+                -1
+            ],
+            [
+                4,
+                -1
+            ],
+            [
+                1,
+                -2
+            ],
+            [
+                2,
+                -2
+            ],
+            [
+                3,
+                -2
+            ],
+            [
+                2,
+                -3
             ]
         ]
     }

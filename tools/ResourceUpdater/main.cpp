@@ -2,7 +2,7 @@
 #include <fstream>
 #include <unordered_set>
 
-#include "Utils/AsstRanges.hpp"
+#include "Utils/Ranges.hpp"
 #include "Utils/StringMisc.hpp"
 
 #ifdef _MSC_VER
@@ -53,6 +53,8 @@ bool update_stages_data(const std::filesystem::path& input_dir, const std::files
 bool update_roguelike_recruit(const std::filesystem::path& input_dir, const std::filesystem::path& output_dir,
                               const std::filesystem::path& solution_dir);
 
+bool update_levels_json(const std::filesystem::path& input_file, const std::filesystem::path& output_dir);
+
 bool update_infrast_templates(const std::filesystem::path& input_dir, const std::filesystem::path& output_dir);
 bool generate_english_roguelike_stage_name_replacement(const std::filesystem::path& ch_file,
                                                        const std::filesystem::path& en_file);
@@ -77,7 +79,7 @@ int main([[maybe_unused]] int argc, char** argv)
                   arkbot_res_dir.string() + "\"";
     }
     else {
-        git_cmd = "git -C \"" + arkbot_res_dir.string() + "\" pull";
+        git_cmd = "git -C \"" + arkbot_res_dir.string() + "\" pull --autostash";
     }
     int git_ret = system(git_cmd.c_str());
     if (git_ret != 0) {
@@ -87,13 +89,10 @@ int main([[maybe_unused]] int argc, char** argv)
 
     const auto solution_dir = std::filesystem::current_path().parent_path().parent_path();
     const auto resource_dir = solution_dir / "resource";
-    const auto third_resource_dir = solution_dir / "3rdparty" / "resource";
 
     /* Update levels.json from Arknights-Bot-Resource*/
     std::cout << "------------Update levels.json------------" << std::endl;
-    if (!std::filesystem::copy_file(arkbot_res_dir / "levels.json",
-                                    third_resource_dir / "Arknights-Tile-Pos" / "levels.json",
-                                    std::filesystem::copy_options::overwrite_existing)) {
+    if (!update_levels_json(arkbot_res_dir / "levels.json", resource_dir / "Arknights-Tile-Pos")) {
         std::cerr << "update levels.json failed" << std::endl;
         return -1;
     }
@@ -145,7 +144,7 @@ int main([[maybe_unused]] int argc, char** argv)
             "git clone https://github.com/Kengxxiao/ArknightsGameData.git --depth=1 \"" + game_data_dir.string() + "\"";
     }
     else {
-        git_cmd = "git -C \"" + game_data_dir.string() + "\" pull";
+        git_cmd = "git -C \"" + game_data_dir.string() + "\" pull --autostash";
     }
     git_ret = system(git_cmd.c_str());
     if (git_ret != 0) {
@@ -162,7 +161,11 @@ int main([[maybe_unused]] int argc, char** argv)
     }
 
     std::unordered_map<std::string, std::string> global_dirs = {
-        { "en_US", "YoStarEN" }, { "ja_JP", "YoStarJP" }, { "ko_KR", "YoStarKR" }, { "zh_TW", "txwy" }
+        // 繁中的gamedata很久没更新了，暂时不从这里拿数据了
+        { "en_US", "YoStarEN" },
+        { "ja_JP", "YoStarJP" },
+        { "ko_KR", "YoStarKR" },
+        /* { "zh_TW", "txwy" } */
     };
     for (const auto& [in, out] : global_dirs) {
         std::cout << "------------Update recruitment data for " << out << "------------" << std::endl;
@@ -222,6 +225,7 @@ bool update_items_data(const std::filesystem::path& input_dir, const std::filesy
         static const std::vector<std::string> BlackListPrefix = {
             "LIMITED_TKT_GACHA_10", // 限定十连
             "p_char_",              // 角色信物（潜能）
+            "class_p_char_",        // 角色中坚信物（潜能）
             "tier",                 // 职业潜能
             "voucher_",             // 干员晋升、皮肤自选券等
             "renamingCard",         // 改名卡
@@ -318,11 +322,12 @@ bool cvt_single_item_template(const std::filesystem::path& input, const std::fil
     src_without_alpha.copyTo(dst, mask);
 
     cv::Mat dst_resized;
-    cv::resize(dst, dst_resized, cv::Size(), 720.0 / 1080.0, 720.0 / 1080.0, cv::INTER_LINEAR_EXACT);
-    cv::Rect quantity_roi(dst_resized.cols - 80, dst_resized.rows - 50, 80, 50);
-    dst_resized(quantity_roi).setTo(0);
+    const double scale = 720.0 / 1080.0 * 0.975;
+    cv::resize(dst, dst_resized, cv::Size(), scale, scale, cv::INTER_AREA);
 
-    dst_resized = dst_resized(cv::Rect(15, 15, 92, 92));
+    cv::Mat dst_gray;
+    cv::cvtColor(dst_resized, dst_gray, cv::COLOR_BGR2GRAY);
+    dst_resized = dst_resized(cv::boundingRect(dst_gray));
 
     cv::imwrite(output.string(), dst_resized);
     return true;
@@ -550,6 +555,43 @@ bool update_roguelike_recruit(const std::filesystem::path& input_dir, const std:
     return true;
 }
 
+bool update_levels_json(const std::filesystem::path& input_file, const std::filesystem::path& output_dir)
+{
+    auto json_opt = json::open(input_file);
+    if (!json_opt) {
+        std::cerr << input_file << " parse failed" << std::endl;
+        return false;
+    }
+    auto& root = json_opt.value();
+
+    auto overview_path = output_dir / "overview.json";
+    json::value overview = json::open(overview_path).value_or(json::value());
+
+    for (auto& stage_info : root.as_array()) {
+        std::string stem = stage_info["stageId"].as_string() + "-" + stage_info["levelId"].as_string();
+        std::string filename = stem + ".json";
+        asst::utils::string_replace_all_in_place(filename, "/", "-");
+        auto filepath = output_dir / filename;
+        if (!std::filesystem::exists(filepath)) {
+            std::ofstream ofs(filepath, std::ios::out);
+            ofs << stage_info.format(true);
+            ofs.close();
+        }
+
+        auto& stage_obj = stage_info.as_object();
+        stage_obj.erase("tiles");
+        stage_obj.erase("view");
+        stage_obj["filename"] = filename;
+        overview[std::move(stem)] = std::move(stage_obj);
+    }
+
+    std::ofstream ofs(overview_path, std::ios::out);
+    ofs << overview.format(true);
+    ofs.close();
+
+    return true;
+}
+
 bool generate_english_roguelike_stage_name_replacement(const std::filesystem::path& ch_file,
                                                        const std::filesystem::path& en_file)
 {
@@ -625,7 +667,8 @@ bool update_battle_chars_info(const std::filesystem::path& input_dir, const std:
         range.emplace(id, std::move(points));
     }
 
-    auto& chars = result["chars"].as_object();
+    auto& chars = result["chars"];
+    std::map<std::string, std::vector<std::string>> tokens;
     for (auto& [id, char_data] : chars_json.as_object()) {
         json::value char_new_data;
         std::string name = char_data["name"].as_string();
@@ -641,15 +684,36 @@ bool update_battle_chars_info(const std::filesystem::path& input_dir, const std:
         char_new_data["rarity"] = static_cast<int>(char_data["rarity"]) + 1;
         char_new_data["position"] = char_data["position"];
 
-        chars.emplace(id, std::move(char_new_data));
+        if (auto token_opt = char_data.find<std::string>("tokenKey")) {
+            tokens[id].emplace_back(*token_opt);
+        }
+        if (auto skill_opt = char_data.find<json::array>("skills")) {
+            for (const auto& skill_obj : *skill_opt) {
+                if (auto token_opt = skill_obj.find<std::string>("overrideTokenKey")) {
+                    tokens[id].emplace_back(*token_opt);
+                }
+            }
+        }
+        chars.object_emplace(id, std::move(char_new_data));
     }
+    for (const auto& [oper_id, token_id_list] : tokens) {
+        std::vector<std::string> token_names_list;
+        for (const auto& token_id : token_id_list) {
+            std::string token_name = chars.get(token_id, "name", std::string());
+            if (!token_name.empty()) {
+                token_names_list.emplace_back(token_name);
+            }
+        }
+        chars[oper_id]["tokens"] = json::array(token_names_list);
+    }
+
     json::value Amiya_data;
     Amiya_data["name"] = "阿米娅-WARRIOR";
     Amiya_data["profession"] = "WARRIOR";
     Amiya_data["rangeId"] = json::array { "1-1", "1-1", "1-1" };
     Amiya_data["rarity"] = 5;
     Amiya_data["position"] = "MELEE";
-    chars.emplace("char_1001_amiya2", std::move(Amiya_data));
+    chars.object_emplace("char_1001_amiya2", std::move(Amiya_data));
 
     const auto& out_file = output_dir / "battle_data.json";
     std::ofstream ofs(out_file, std::ios::out);
@@ -732,7 +796,8 @@ bool update_recruitment_data(const std::filesystem::path& input_dir, const std::
                 continue;
             }
             if (info.rarity == 1) {
-                info.tags.emplace_back("支援机械");
+                // 2023/01/17, yj 又把支援机械加上了，我们就不额外添加了
+                // info.tags.emplace_back("支援机械");
             }
             else if (info.rarity == 5) {
                 info.tags.emplace_back("资深干员");
@@ -875,8 +940,8 @@ bool check_roguelike_replace_for_overseas(const std::filesystem::path& input_dir
     }
     auto& task_json = task_opt.value();
 
-    auto proc = [&input_dir](json::array& replace_array, const std::unordered_map<std::string, std::string>& base_map,
-                             const std::unordered_map<std::string, std::string>& cur_map) {
+    auto proc = [&output_dir](json::array& replace_array, const std::unordered_map<std::string, std::string>& base_map,
+                              const std::unordered_map<std::string, std::string>& cur_map) {
         std::unordered_map<std::string, std::string> exists_replace;
         for (const auto& replace : replace_array) {
             exists_replace.emplace(replace.as_array()[1], replace.as_array()[0]);
@@ -896,7 +961,7 @@ bool check_roguelike_replace_for_overseas(const std::filesystem::path& input_dir
             if (exists_replace.contains(base_name)) {
                 continue;
             }
-            std::cout << "Roguelike add new field: " << base_name << ", " << input_dir << std::endl;
+            std::cout << "Roguelike add new field: " << base_name << ", " << output_dir << std::endl;
             replace_array.emplace_back(json::array { name, base_name });
         }
     };

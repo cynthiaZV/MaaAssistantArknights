@@ -39,15 +39,12 @@ namespace Map
     class TileCalc
     {
     public:
-        TileCalc(int width, int height, const std::filesystem::path& dir);
-        bool run(const std::string& any_key, bool side, std::vector<std::vector<cv::Point2d>>& out_pos,
-                 std::vector<std::vector<Tile>>& out_tiles) const;
-        bool run(const LevelKey& key, bool side, std::vector<std::vector<cv::Point2d>>& out_pos,
-                 std::vector<std::vector<Tile>>& out_tiles) const;
+        TileCalc(int width, int height);
+
+        bool run(const Level& level, bool side, std::vector<std::vector<cv::Point2d>>& out_pos,
+                 std::vector<std::vector<Tile>>& out_tiles, double shift_x = 0, double shift_y = 0) const;
 
     private:
-        bool run(const Level& level, bool side, std::vector<std::vector<cv::Point2d>>& out_pos,
-                 std::vector<std::vector<Tile>>& out_tiles) const;
         bool adapter(double& x, double& y) const;
 
         int width = 0;
@@ -93,7 +90,7 @@ namespace Map
         }
     }
 
-    inline TileCalc::TileCalc(int width, int height, const std::filesystem::path& dir)
+    inline TileCalc::TileCalc(int width, int height)
     {
         this->width = width;
         this->height = height;
@@ -113,64 +110,10 @@ namespace Map
                                { -sin(10 * degree), 0, cos(10 * degree), 0 },
                                { 0, 0, 0, 1 } };
         InitMat4x4(this->MatrixY, matrixY);
-        std::ifstream ifs(dir, std::ios::in);
-        if (!ifs.is_open()) {
-            std::cerr << "Read resource failed" << std::endl;
-            throw "Read resource failed";
-        }
-        std::stringstream iss;
-        iss << ifs.rdbuf();
-        ifs.close();
-        std::string content = iss.str();
-        auto ret = json::parse(content);
-        if (!ret) {
-            std::cerr << "Parsing failed" << std::endl;
-            throw "Parsing failed";
-        }
-        for (const json::value& item : ret.value().as_array()) {
-            this->levels.emplace_back(item);
-        }
-    }
-
-    inline bool TileCalc::adapter(double& x, double& y) const
-    {
-        const double fromRatio = 9.0 / 16;
-        const double toRatio = 3.0 / 4;
-        double ratio = static_cast<double>(height) / width;
-        if (ratio < fromRatio - 0.00001) {
-            x = 0;
-            y = 0;
-            return false;
-        }
-        double t = (ratio - fromRatio) / (toRatio - fromRatio);
-        x = -1.4 * t;
-        y = -2.8 * t;
-        return true;
-    }
-
-    inline bool TileCalc::run(const std::string& any_key, bool side, std::vector<std::vector<cv::Point2d>>& out_pos,
-                              std::vector<std::vector<Tile>>& out_tiles) const
-    {
-        auto iter = std::find_if(levels.cbegin(), levels.cend(),
-                                 [&any_key](const Level& level) -> bool { return level.key == any_key; });
-        if (iter == levels.cend()) {
-            return false;
-        }
-        return run(*iter, side, out_pos, out_tiles);
-    }
-    inline bool TileCalc::run(const LevelKey& key, bool side, std::vector<std::vector<cv::Point2d>>& out_pos,
-                              std::vector<std::vector<Tile>>& out_tiles) const
-    {
-        auto iter = std::find_if(levels.cbegin(), levels.cend(),
-                                 [&key](const Level& level) -> bool { return level.key == key; });
-        if (iter == levels.cend()) {
-            return false;
-        }
-        return run(*iter, side, out_pos, out_tiles);
     }
 
     inline bool TileCalc::run(const Level& level, bool side, std::vector<std::vector<cv::Point2d>>& out_pos,
-                              std::vector<std::vector<Tile>>& out_tiles) const
+                              std::vector<std::vector<Tile>>& out_tiles, double shift_x, double shift_y) const
     {
         auto [x, y, z] = level.view[side ? 1 : 0];
         double adapter_y = 0, adapter_z = 0;
@@ -196,8 +139,8 @@ namespace Map
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
                 tmp_tiles[j] = level.get_item(i, j);
-                map_point.at<double>(0, 0) = j - (w - 1) / 2.0;
-                map_point.at<double>(1, 0) = (h - 1) / 2.0 - i;
+                map_point.at<double>(0, 0) = j - (w - 1) / 2.0 + shift_x;
+                map_point.at<double>(1, 0) = (h - 1) / 2.0 - i + shift_y;
                 map_point.at<double>(2, 0) = tmp_tiles[j].heightType * -0.4;
                 cv::Mat view_point = Finall_Matrix * map_point;
                 view_point = view_point / view_point.at<double>(3, 0);
@@ -208,6 +151,22 @@ namespace Map
             out_pos.emplace_back(tmp_pos);
             out_tiles.emplace_back(tmp_tiles);
         }
+        return true;
+    }
+
+    inline bool TileCalc::adapter(double& x, double& y) const
+    {
+        const double fromRatio = 9.0 / 16;
+        const double toRatio = 3.0 / 4;
+        double ratio = static_cast<double>(height) / width;
+        if (ratio < fromRatio - 0.00001) {
+            x = 0;
+            y = 0;
+            return false;
+        }
+        double t = (ratio - fromRatio) / (toRatio - fromRatio);
+        x = -1.4 * t;
+        y = -2.8 * t;
         return true;
     }
 } // namespace Map

@@ -7,8 +7,8 @@ namespace MaaBuilder;
 
 public partial class Build
 {
-    Target UseMaaDevBundle => _ => _
-        .DependsOn(WithCompileCoreRelease, WithCompileWpfRelease)
+    private Target UseMaaDevBundle => _ => _
+        .DependsOn(WithCompileCoreRelease, WithCompileWpfRelease, WithSyncRes)
         .Triggers(SetPackageBundled)
         .Executes(() =>
         {
@@ -16,8 +16,8 @@ public partial class Build
             BundlePackage(buildOutput, MaaDevBundlePackageName, "DevBundle");
         });
 
-    Target UseMaaRelease => _ => _
-        .DependsOn(WithCompileCoreRelease, WithCompileWpfRelease)
+    private Target UseMaaRelease => _ => _
+        .DependsOn(WithCompileCoreRelease, WithCompileWpfRelease, WithSyncRes)
         .Triggers(SetPackageBundled)
         .Executes(() =>
         {
@@ -25,13 +25,13 @@ public partial class Build
 
             foreach (var package in Parameters.Packages)
             {
-                var name = package.NameTemplate.Replace("{VERSION}", Version);
-                    
+                var name = package.NameTemplate.Replace("{VERSION}", Version).Replace("{PLATFORM}", Parameters.TargetPlatform.ToLower());
+
                 BundleMaaBundle(releaseBuildOutput, name, package);
             }
         });
 
-    Target SetPackageBundled => _ => _
+    private Target SetPackageBundled => _ => _
         .After(UseMaaDevBundle)
         .Executes(() =>
         {
@@ -44,7 +44,7 @@ public partial class Build
             }
 
             var str = JsonSerializer.Serialize(ArtifactChecksums);
-            
+
             // Encoding.Default => UTF8
             // Encoding.UTF8 => UTF8-with-BOM
             File.WriteAllText(checksumFile, str, Encoding.Default);

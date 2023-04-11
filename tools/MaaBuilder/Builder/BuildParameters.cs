@@ -16,6 +16,7 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using MaaBuilder.Models;
 using static Nuke.Common.Tools.VSWhere.VSWhereTasks;
+using Nuke.Common.Tools.MSBuild;
 
 namespace MaaBuilder;
 
@@ -23,17 +24,17 @@ public partial class Build
 {
     #region Nuke 默认全局参数
 
-    [CI] readonly GitHubActions GitHubActions;
-    
+    [CI] private readonly GitHubActions GitHubActions;
+
     public static bool IsReleaseSimulation { get; set; }
 
-    #endregion
+    #endregion Nuke 默认全局参数
 
     public class BuildParameters
     {
         #region 方法
 
-        static readonly Lazy<string> GetVsPath = new(() =>
+        private static readonly Lazy<string> GetVsPath = new(() =>
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) is false)
             {
@@ -45,7 +46,7 @@ public partial class Build
             return string.IsNullOrWhiteSpace(vsDirectory) ? null : vsDirectory;
         });
 
-        readonly Func<string, string> GetMsBuildPath = vsPath =>
+        private readonly Func<string, string> GetMsBuildPath = vsPath =>
         {
             var msBuildExe = Path.Combine(vsPath, @"MSBuild\Current\Bin\MSBuild.exe");
             if (File.Exists(msBuildExe) is false)
@@ -56,35 +57,44 @@ public partial class Build
             return File.Exists(msBuildExe) ? msBuildExe : null;
         };
 
-        #endregion
+        #endregion 方法
 
         // 工具链
         public AbsolutePath MsBuildPath { get; }
+
         public AbsolutePath VisualStudioPath { get; }
 
         // 仓库
         public string MainRepo { get; }
+
         public string MasterBranchRef { get; }
         public string DevBranchRef { get; }
         public string ReleaseTagRefPrefix { get; }
 
         // 路径
         public AbsolutePath BuildOutput { get; }
+
         public AbsolutePath ArtifactOutput { get; }
         public AbsolutePath MaaChangelogFile { get; }
 
         // 项目
         public Project MaaCoreProject { get; }
+
         public Project MaaWpfProject { get; }
+
+        public Project MaaSyncResProject { get; }
 
         // 配置
         public string BuildTime { get; }
+
         public string CommitHash { get; }
         public string CommitHashFull { get; }
+        public string TargetPlatform { get; }
         public List<Package> Packages { get; } = null;
 
         // CI
         public bool IsGitHubActions { get; }
+
         public bool IsPullRequest { get; }
         public bool IsWorkflowDispatch { get; }
         public bool IsPreRelease { get; }
@@ -106,6 +116,8 @@ public partial class Build
             Assert.True(msbuild is not null, "找不到 MSBuild");
             MsBuildPath = (AbsolutePath)msbuild;
 
+            TargetPlatform = Environment.GetEnvironmentVariable("MAABUILDER_TARGET_PLATFORM") ?? HostPlatform;
+
             // 仓库
             MainRepo = "MaaAssistantArknights/MaaAssistantArknights";
 
@@ -114,21 +126,22 @@ public partial class Build
             ReleaseTagRefPrefix = "refs/tags/v";
 
             // 路径
-            BuildOutput = RootDirectory / "x64";
+            BuildOutput = RootDirectory / TargetPlatform;
             ArtifactOutput = RootDirectory / "artifacts";
-            
+
             MaaChangelogFile = RootDirectory / "CHANGELOG.md";
 
             // 项目
-            var maaSolution = ProjectModelTasks.ParseSolution(RootDirectory / "MeoAssistantArknights.sln");
-            Assert.True(maaSolution is not null, "无法载入 MeoAssistantArknights.sln");
-            MaaCoreProject = maaSolution.GetProject("MeoAssistant");
-            MaaWpfProject = maaSolution.GetProject("MeoAsstGui");
+            var maaSolution = ProjectModelTasks.ParseSolution(RootDirectory / "MAA.sln");
+            Assert.True(maaSolution is not null, "无法载入 MAA.sln");
+            MaaCoreProject = maaSolution.GetProject("MaaCore");
+            MaaWpfProject = maaSolution.GetProject("MaaWpfGui");
+            MaaSyncResProject = maaSolution.GetProject("SyncRes");
 
             // 配置
             CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("zh-Hans-CN");
             BuildTime = DateTimeOffset.UtcNow.ToLocalTime().ToString("yyyy-MM-dd-HH-mm-ss");
-            
+
             CommitHash = GitTasks.GitCurrentCommit();
             Assert.True(CommitHash is not null, "Commit Hash 为 Null");
             CommitHashFull = CommitHash;
@@ -148,7 +161,7 @@ public partial class Build
             }
             GhActionName = (ActionConfiguration)b.GitHubActions!.Workflow;
             Assert.True(GhActionName is not null, $"GitHub Actions Workflow 名 {b.GitHubActions.Workflow} 无法转换为 ActionConfiguration");
-                
+
             Assert.False(string.IsNullOrEmpty(b.GitHubActions.Ref), "Ref 为 Null");
 
             GitHubPersonalAccessToken = Environment.GetEnvironmentVariable("PUBLISH_GH_PAT");
@@ -198,6 +211,7 @@ public partial class Build
                         case "Reason":
                             GhActionWdReason = v.ToString();
                             break;
+
                         case "ReleaseSimulation":
                             var tn = v.ToString();
                             if (string.IsNullOrEmpty(tn) || tn == "none")
@@ -207,7 +221,7 @@ public partial class Build
 
                             IsReleaseSimulation = true;
                             GhActionWdRsTagName = tn;
-                            
+
                             break;
                     }
                 }
